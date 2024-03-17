@@ -1,0 +1,120 @@
+.basic-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.photo-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-auto-rows: 240px;
+}
+
+@media screen and (min-width: 600px) {
+
+    .card-tall {
+        grid-row: span 2 / auto;
+    }
+
+    .card-wide {
+        grid-column: span 2 / auto;
+    }
+}
+
+.animated-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-areas: 
+    'a b c d'
+    'e f f g'
+    'h f f k'
+    'l m n o';
+    ;
+
+    grid-template-rows: repeat(4,25%);
+    grid-template-columns: 240px auto auto 240px;
+    --stagger-delay: 100ms;
+}
+
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+        filter: hue-rotate(180deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: hue-rotate(0deg);
+    }
+}
+
+.card1 {
+    background-color: pink;
+    animation: cardEntrance 700ms ease-out;
+    animation-fill-mode: backwards;
+}
+.card1:nth-child(1) {
+    grid-area: a;
+    animation-delay: calc(1* var(--stagger-delay));
+}
+
+.card1:nth-child(2) {
+    grid-area: b;
+    animation-delay: calc(2* var(--stagger-delay));
+}
+.card1:nth-child(3) {
+    grid-area: c;
+    animation-delay: calc(3* var(--stagger-delay));
+
+}
+.card1:nth-child(4) {
+    grid-area: d;
+    animation-delay: calc(4* var(--stagger-delay));
+}
+.card1:nth-child(5) {
+    grid-area: g;
+    animation-delay: calc(5* var(--stagger-delay));
+}
+.card1:nth-child(6) {
+    grid-area: k;
+    animation-delay: calc(6* var(--stagger-delay));
+
+}
+.card1:nth-child(7) {
+    grid-area: o;
+    animation-delay: calc(7* var(--stagger-delay));
+
+}
+
+.card1:nth-child(8) {
+    grid-area: n;
+    animation-delay: calc(8* var(--stagger-delay));
+
+}
+.card1:nth-child(9) {
+    grid-area: m;
+    animation-delay: calc(9* var(--stagger-delay));
+
+}
+.card1:nth-child(10) {
+    grid-area: l;
+    animation-delay: calc(10* var(--stagger-delay));
+
+}
+
+.card1:nth-child(11) {
+    grid-area: h;
+    animation-delay: calc(11* var(--stagger-delay));
+
+}
+.card1:nth-child(12) {
+    grid-area: e;
+    animation-delay: calc(12* var(--stagger-delay));
+
+}
+.card1:last-child {
+    grid-area: f;
+}
